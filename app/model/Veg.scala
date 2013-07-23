@@ -1,0 +1,1 @@
+class Veg(val name:String, val scientificName:String)
