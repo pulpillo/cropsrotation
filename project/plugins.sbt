@@ -1,7 +1,3 @@
-seq(ScctPlugin.instrumentSettings : _*)
-
-seq(com.github.theon.coveralls.CoverallsPlugin.coverallsSettings: _*)
-
 // Comment to get more information during initialization
 logLevel := Level.Warn
 
