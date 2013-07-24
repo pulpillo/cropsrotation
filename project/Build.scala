@@ -1,6 +1,7 @@
 import sbt._
 import Keys._
 import play.Project._
+import com.github.theon.coveralls.CoverallsPlugin._
 
 object ApplicationBuild extends Build {
 
@@ -15,8 +16,7 @@ object ApplicationBuild extends Build {
 
 
   val main = play.Project(appName, appVersion, appDependencies).settings(
-    ScctPlugin.instrumentSettings : _*,
-    com.github.theon.coveralls.CoverallsPlugin.coverallsSettings: _*   
+    settings = ScctPlugin.instrumentSettings ++ coverallsSettings 
   )
 
 }
