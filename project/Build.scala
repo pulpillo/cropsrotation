@@ -15,8 +15,7 @@ object ApplicationBuild extends Build {
   )
 
 
-  val main = play.Project(appName, appVersion, appDependencies).settings(
-    settings = ScctPlugin.instrumentSettings ++ coverallsSettings 
+  val main = play.Project(appName, appVersion, appDependencies).settings(ScctPlugin.instrumentSettings:_*).settings(com.github.theon.coveralls.CoverallsPlugin.coverallsSettings: _*).settings(
   )
 
 }
