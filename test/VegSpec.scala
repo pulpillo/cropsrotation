@@ -3,6 +3,8 @@ import org.specs2.mutable._
 import play.api.test._
 import play.api.test.Helpers._
 
+import Veg._
+
 /**
  * Add your spec here.
  * You can mock out a whole application including requests, plugins etc.
@@ -12,11 +14,17 @@ class VegSpec extends Specification {
   
   "Vegetable" should {
     
-    val veg : Veg = new Veg("name","scientificname","Quenopodiacias")
+    val plantingMonths = Months.May::Nil
+    val plantingType = "type"
+    val plantingDepth: Depth = 12
+    val plantingDistance : Distance = (20,20)
+    val planting : Planting = new Planting(plantingMonths, plantingType, plantingDepth,plantingDistance)
+    val veg : Veg = new Veg("name","scientificname","Quenopodiacias",planting)
+    
 
     "has a name and a scientific name" in {
-      veg.name must startWith("name")
-      veg.scientificName must startWith("scientificname")
+      veg.name must_== "name"
+      veg.scientificName  must_== "scientificname"
     }
     
     "has a family" in{
@@ -59,20 +67,20 @@ class VegSpec extends Specification {
       pending
     }
 
-    "has planting time" in{
+    "has planting seasson" in{
       pending
     }
 
     "has planting type" in{
-      pending
+      planting.plantingType must_== plantingType
     }
 
     "has planting depth" in{
-      pending
+      planting.depth must_== plantingDepth
     }
 
     "has planting distance" in {
-      pending
+      planting.distance must_== plantingDistance
     }
   
   }
