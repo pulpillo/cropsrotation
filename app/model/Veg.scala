@@ -1,1 +1,1 @@
-class Veg(val name:String, val scientificName:String)
+class Veg(val name:String, val scientificName:String, val family:String)
